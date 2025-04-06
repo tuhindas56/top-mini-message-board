@@ -1,13 +1,15 @@
+import formatDate from "../utils/dateFormatter.js"
+
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
+    added: formatDate(new Date()),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
+    added: formatDate(new Date()),
   },
 ]
 
