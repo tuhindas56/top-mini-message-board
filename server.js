@@ -1,7 +1,8 @@
 import express from "express"
 import path from "node:path"
 import homeController from "./controller/home.js"
-import newMessageRouter from "./routers/new.js"
+import newMessageRouter from "./routes/new.js"
+import { handle404, handleError } from "./controller/errorHandler.js"
 
 const app = express()
 const PORT = process.env.PORT || 8080
@@ -14,5 +15,8 @@ app.use(express.urlencoded())
 
 app.get("/", homeController)
 app.use("/new", newMessageRouter)
+
+app.use(handle404)
+app.use(handleError)
 
 app.listen(PORT, () => console.log(`[Server]: Listening on port ${PORT}`))
