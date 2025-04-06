@@ -17,4 +17,10 @@ function getMessages() {
   return [...messages]
 }
 
-export { getMessages }
+function addMessage(message) {
+  const added = formatDate(new Date())
+  messages.push({ ...message, added })
+  return [...messages]
+}
+
+export { addMessage, getMessages }
