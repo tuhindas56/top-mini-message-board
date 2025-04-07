@@ -1,4 +1,4 @@
-import { addMessage } from "../models/messages.js"
+const { addMessage } = require("../models/messages.js")
 
 function get(req, res) {
   res.render("form")
@@ -12,4 +12,4 @@ function post(req, res) {
 
 const newMessageControllers = { get, post }
 
-export default newMessageControllers
+module.exports = newMessageControllers

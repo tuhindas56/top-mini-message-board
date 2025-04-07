@@ -1,4 +1,4 @@
-import formatDate from "../utils/dateFormatter.js"
+const formatDate = require("../utils/dateFormatter.js")
 
 const messages = [
   {
@@ -23,4 +23,4 @@ function addMessage(message) {
   return [...messages]
 }
 
-export { addMessage, getMessages }
+module.exports = { addMessage, getMessages }

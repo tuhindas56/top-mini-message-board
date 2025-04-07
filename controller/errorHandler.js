@@ -7,4 +7,4 @@ function handleError(err, req, res, next) {
   res.sendStatus(500)
 }
 
-export { handle404, handleError }
+module.exports = { handle404, handleError }

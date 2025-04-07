@@ -1,6 +1,8 @@
-import { getMessages } from "../models/messages.js"
+const { getMessages } = require("../models/messages.js")
 
-export default function homeController(req, res) {
+function homeController(req, res) {
   const messages = getMessages()
   res.render("index", { messages })
 }
+
+module.exports = homeController
