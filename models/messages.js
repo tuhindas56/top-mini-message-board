@@ -1,20 +1,10 @@
-const formatDate = require("../utils/dateFormatter.js")
+const db = require("../db/index.js")
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: formatDate(new Date()),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: formatDate(new Date()),
-  },
-]
-
-function getMessages() {
-  return [...messages]
+async function getMessages() {
+  const { rows } = await db.query(
+    "SELECT username as user, TO_CHAR(added, 'Mon dd, yyyy') as added, message as text FROM messages;"
+  )
+  return rows
 }
 
 function addMessage(message) {

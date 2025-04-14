@@ -1,7 +1,7 @@
 const { getMessages } = require("../models/messages.js")
 
-function homeController(req, res) {
-  const messages = getMessages()
+async function homeController(req, res) {
+  const messages = await getMessages()
   res.render("index", { messages })
 }
 
