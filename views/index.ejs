@@ -4,20 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message Board</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
   </head>
-  <body>
-    <h1>Message Board</h1>
-    <a href="/new">Add message</a>
-    <hr />
-    <h2>Messages</h2>
-    <ul>
-      <% for(let message of messages) { %>
-      <li>
-        <h3><%= message.user %></h3>
-        <p><%= message.text %></p>
-        <p><%= message.added %></p>
-      </li>
-      <% } %>
-    </ul>
+  <body class="container">
+    <header>
+      <h1>Message Board</h1>
+      <a href="/new">Add message</a>
+    </header>
+    <main>
+      <h2>Messages</h2>
+      <ul class="container">
+        <% for(let message of messages) { %>
+        <li>
+          <section>
+            <hr />
+            <h3><%= message.user %> says</h3>
+            <p><i><%= message.text %></i></p>
+            <small><%= message.added %></small>
+          </section>
+        </li>
+        <% } %>
+      </ul>
+    </main>
   </body>
 </html>

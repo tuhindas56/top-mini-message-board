@@ -4,15 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message Board</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
   </head>
-  <body>
-    <h1>New Message</h1>
+  <body class="container">
+    <header>
+      <h1>New Message</h1>
+    </header>
     <form action="/new" method="post">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Enter your name"
+      />
 
       <label for="message">Enter your message</label>
-      <textarea id="message" name="message"></textarea>
+      <textarea
+        id="message"
+        name="message"
+        required
+        placeholder="Enter your message"
+      ></textarea>
 
       <button type="submit">Submit message</button>
     </form>
