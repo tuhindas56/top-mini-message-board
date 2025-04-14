@@ -17,7 +17,7 @@
     <main>
       <h2>Messages</h2>
       <ul class="container">
-        <% for(let message of messages) { %>
+        <% if (locals.messages) {%> <% for(let message of messages) { %>
         <li>
           <section>
             <hr />
@@ -26,6 +26,8 @@
             <small><%= message.added %></small>
           </section>
         </li>
+        <% } %> <% } else { %>
+        <p>There are no messages.</p>
         <% } %>
       </ul>
     </main>
