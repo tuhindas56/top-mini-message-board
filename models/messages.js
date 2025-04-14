@@ -1,4 +1,5 @@
 const db = require("../db/index.js")
+const formatDate = require("../utils/dateFormatter.js")
 
 async function getMessages() {
   const { rows } = await db.query(
@@ -7,10 +8,12 @@ async function getMessages() {
   return rows
 }
 
-function addMessage(message) {
+async function addMessage({ user, text }) {
   const added = formatDate(new Date())
-  messages.push({ ...message, added })
-  return [...messages]
+  await db.query(
+    "INSERT INTO messages (username, added, message) values ($1, $2, $3);",
+    [user, added, text]
+  )
 }
 
 module.exports = { addMessage, getMessages }
